@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Technooze_Tconfigurable>
+            <version>0.1.1</version>
+        </Technooze_Tconfigurable>
+    </modules>
+    <global>
+        <models>
+            <configurable>
+                <class>Technooze_Tconfigurable_Model</class>
+            </configurable>
+        </models>
+        <blocks>
+            <tconfigurable>
+                <class>Technooze_Tconfigurable_Block</class>
+            </tconfigurable>
+            <catalog>
+                <rewrite>
+                    <product_view_type_configurable>Technooze_Tconfigurable_Block_Frontend_Configurable</product_view_type_configurable>
+                </rewrite>
+            </catalog>
+        </blocks>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <tconfigurable module="Technooze_Tconfigurable">
+                    <file>tconfigurable.xml</file>
+                </tconfigurable>
+            </updates>
+        </layout>
+    </frontend>
+</config>

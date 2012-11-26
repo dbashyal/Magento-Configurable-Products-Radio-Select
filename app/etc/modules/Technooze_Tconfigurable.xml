@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Technooze_Tconfigurable>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Technooze_Tconfigurable>
+    </modules>
+</config>
