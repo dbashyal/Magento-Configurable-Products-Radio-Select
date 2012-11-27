@@ -1,0 +1,18 @@
+.product-options dl {margin: 0 0 15px 0;}
+.product-options dd {margin: 0 5px 5px 0;float: left;padding: 0;}
+.product-options dd label {padding: 0 10px;border: 1px solid #B4B9BD;display: block;position: relative;overflow: hidden;}
+.product-options dd.attr-color label {padding: 0;width: 22px;height: 22px;text-indent: -99px;}
+.product-options dd.color-red {background: #ff0000;}
+.product-options dd.color-pink {background: #FFC0CB;}
+.product-options dd.color-orange {background: #FFA500;}
+.product-options dd.color-yellow {background: #FFFF00;}
+.product-options dd.color-purple {background: #800080;}
+.product-options dd.color-indigo {background: #4B0082;}
+.product-options dd.color-green {background: #008000;}
+.product-options dd.color-blue {background: #0000FF;}
+.product-options dd.color-brown {background: #A52A2A;}
+.product-options dd.color-white {background: #ffffff;}
+.product-options dd.color-grey,.product-options dd.color-gray {background: #808080;}
+.product-options dd label input {position: absolute;top: -9999px;left: 0;}
+.product-options dl.last dd.last {}
+.product-options dd input.input-text {background: #fff;}

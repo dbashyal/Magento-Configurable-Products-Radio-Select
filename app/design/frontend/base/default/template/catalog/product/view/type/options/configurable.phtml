@@ -1,0 +1,58 @@
+<?php
+$_product    = $this->getProduct();
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl>
+    <?php foreach($_attributes as $_attribute): ?>
+        <dt><label class="required"><em>*</em><?php echo $_attribute->getLabel() ?></label></dt>
+
+        <div class="input-box">
+            <?php $configs = $this->getRegularConfig($_attribute->getData('attribute_id')) ?>
+            <?php //foreach($configs['attributes'] as $config):?>
+                <?php foreach($configs['options'] as $value):?>
+                    <dd class="<?php if ($_attribute->decoratedIsLast){?>last<?php }?> <?php echo $this->getCssClass($_attribute->getLabel(), $value['label']); ?>">
+                    <label class="label-radio-configurable" id="<?php echo (float)$value['price'] + (float) $_product->getPrice();?>">
+                    <input type="radio" name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]"
+                            id="attribute<?php echo $_attribute->getAttributeId() ?>"
+                            class="validate-custom-configurable"
+                            value="<?php echo $value['id']?>"/>
+                        <?php echo $value['label']?><!-- (+ $<?php printf("%.2f", $value['price'])?>)-->
+                    </label>
+                <?php endforeach;?>
+            <?php //endforeach;?>
+             </dd>
+        </div>
+        <p class="fclear"></p>
+    <?php endforeach; ?>
+    </dl>
+<?php endif;?>
+    <script type="text/javascript">
+        var spConfig = new Product.Config(<?php echo $this->getJsonConfig() ?>);
+		document.observe("dom:loaded", function() {
+			var customValidation = false;
+			var priceFormat = <?php echo $this->helper('tax')->getPriceFormat(); ?>;
+			$$('.validate-custom-configurable').each(function(el){
+				el.observe('click',function(event){
+                    // get the highest price
+                    var $price = el.parentNode.id;
+                    jQuery('.validate-custom-configurable:checked').each(function(){
+                        $price = ($price > jQuery(this).parent().attr('id')) ? $price : jQuery(this).parent().attr('id');
+                    });
+					$$('span .price').each(function(elmn){
+						elmn.update(formatCurrency(parseFloat($price), priceFormat)).innerHTML;
+					});
+				});
+			});
+			Validation.addAllThese([
+				['validate-custom-configurable', 'This is a required field.', function(v) {
+					$$('.validate-custom-configurable').each(function(el){
+						if (el.checked) {
+							customValidation = true;
+						}
+					});
+					return customValidation;
+				}]
+			]);
+		});
+    </script>
