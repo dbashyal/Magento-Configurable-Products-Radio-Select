@@ -107,17 +107,20 @@ class Technooze_Tconfigurable_Block_Frontend_Configurable extends Mage_Catalog_B
         return $config;
     }
 
-    public function getCssClass($pre='', $post=''){
+    public function getCssClass($pre='', $post='', $sep='-'){
         $class = '';
         $pre = preg_replace('/[^a-z0-9_]+/isU', '', trim($pre));
         $post = preg_replace('/[^a-z0-9_]+/isU', '', trim($post));
 
         if(!empty($pre)){
-            $class = $pre;
+            $class = "attr-{$pre} {$pre}";
         }
 
         if(!empty($post)){
-            $class .= "-{$post}";
+            if(!empty($sep)){
+                $class .= $sep;
+            }
+            $class .= $post;
         }
 
         return strtolower($class);
