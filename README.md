@@ -4,4 +4,4 @@ Replace Magento's select drop down with radio buttons for configurable products 
 
 NOTE: This doesn't work with products with special price yet, which needs to be fixed.
 
-###visit: http://learntipsandtricks.com/ for more magento tips, tricks and codes.
+###visit: http://dltr.org/ for more magento tips, tricks and codes.
