@@ -1,0 +1,4 @@
+app/code/community/Technooze/Tconfigurable               app/code/community/Technooze/Tconfigurable              
+app/design/frontend/base/default/template/catalog        app/design/frontend/base/default/template/catalog       
+app/etc/modules/Technooze_Tconfigurable.xml              app/etc/modules/Technooze_Tconfigurable.xml             
+skin/frontend/base/default/css/tconfigurable.css         skin/frontend/base/default/css/tconfigurable.css        
